@@ -40,25 +40,24 @@ class App extends Component {
       return task;
     });
 
-    // Verifica si la tarea pasó de activa a completada
-    const completedTask = this.state.tasks.find((task) => task.id === taskId);
-    if (completedTask && !completedTask.active) {
-      this.setState((prevState) => ({
-        tasks: updatedTasks,
-        tasksLeft: prevState.tasksLeft - 1, // Decrementa el contador
-      }));
-    } else {
-      this.setState({ tasks: updatedTasks });
-    }
+    const activeTasks = updatedTasks.filter((task) => task.active);
+
+    this.setState({
+      tasks: updatedTasks,
+      tasksLeft: activeTasks.length, // Actualiza el contador
+    });
   };
 
   handleTaskDelete = (taskId) => {
     const { tasks } = this.state;
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
-    this.setState((prevState) => ({
+
+    const activeTasks = updatedTasks.filter((task) => task.active);
+
+    this.setState({
       tasks: updatedTasks,
-      tasksLeft: prevState.tasksLeft - 1, // Decrementa el contador
-    }));
+      tasksLeft: activeTasks.length, // Actualiza el contador
+    });
   };
 
   render() {

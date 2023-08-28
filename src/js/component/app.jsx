@@ -70,7 +70,7 @@ class App extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Nueva tarea"
+              placeholder="Insert new Task"
               value={newTaskText}
               onChange={this.handleInputChange}
             />

@@ -7,7 +7,7 @@ class App extends Component {
     this.state = {
       tasks: [],
       newTaskText: "",
-      tasksLeft: 0, // Nuevo estado para el contador
+      tasksLeft: 0, 
     };
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
       this.setState((prevState) => ({
         tasks: [...prevState.tasks, newTask],
         newTaskText: "",
-        tasksLeft: prevState.tasksLeft + 1, // Incrementar el contador
+        tasksLeft: prevState.tasksLeft + 1, 
       }));
     }
   };
@@ -44,7 +44,7 @@ class App extends Component {
 
     this.setState({
       tasks: updatedTasks,
-      tasksLeft: activeTasks.length, // Actualiza el contador
+      tasksLeft: activeTasks.length, 
     });
   };
 
@@ -56,7 +56,7 @@ class App extends Component {
 
     this.setState({
       tasks: updatedTasks,
-      tasksLeft: activeTasks.length, // Actualiza el contador
+      tasksLeft: activeTasks.length, 
     });
   };
 
